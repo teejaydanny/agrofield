@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gcm_defaultSenderId" translatable="false">791019635129</string>
+    <string name="google_api_key" translatable="false">AIzaSyABbi3CSyhCSm5ILMabWHsBnfZkTzTYAyo</string>
+    <string name="google_app_id" translatable="false">1:791019635129:android:4ea53afc0cce025e7e7668</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyABbi3CSyhCSm5ILMabWHsBnfZkTzTYAyo</string>
+    <string name="google_storage_bucket" translatable="false">agrofield-65e83.appspot.com</string>
+    <string name="project_id" translatable="false">agrofield-65e83</string>
+</resources>
