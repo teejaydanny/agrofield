@@ -1,9 +1,9 @@
 
 package com.example.agrofield.data
 
+import android.app.ProgressDialog
 import android.content.Context
 import android.widget.Toast
-import androidx.lifecycle.ViewModel
 import androidx.navigation.NavController
 import com.example.agrofield.navigation.ROUTE_HOME
 import com.example.agrofield.navigation.ROUTE_LOGIN
@@ -11,8 +11,16 @@ import com.example.agrofield.navigation.ROUTE_REGISTER
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
 
-class AuthViewModel(private val navController: NavController, private val context: Context) : ViewModel() {
-    private val mAuth: FirebaseAuth = FirebaseAuth.getInstance()
+class AuthViewModel(var navController: NavController,var context: Context) {
+    var mAuth: FirebaseAuth
+    val progress: ProgressDialog
+
+    init {
+        mAuth = FirebaseAuth.getInstance()
+        progress = ProgressDialog(context)
+        progress.setTitle("Loading")
+        progress.setMessage("PLease Wait.....")
+    }
 
     fun signup(email: String, password: String, confirmPassword: String) {
         if (email.isBlank() || password.isBlank() || confirmPassword.isBlank()) {
@@ -31,10 +39,12 @@ class AuthViewModel(private val navController: NavController, private val contex
                     .setValue(email)
                     .addOnCompleteListener { registrationTask ->
                         if (registrationTask.isSuccessful) {
-                            Toast.makeText(context, "Registered Successfully", Toast.LENGTH_LONG).show()
+                            Toast.makeText(context, "Registered Successfully", Toast.LENGTH_LONG)
+                                .show()
                             navController.navigate(ROUTE_HOME)
                         } else {
-                            val errorMessage = registrationTask.exception?.message ?: "Unknown error occurred"
+                            val errorMessage =
+                                registrationTask.exception?.message ?: "Unknown error occurred"
                             Toast.makeText(context, errorMessage, Toast.LENGTH_LONG).show()
                             navController.navigate(ROUTE_REGISTER)
                         }
@@ -64,9 +74,6 @@ class AuthViewModel(private val navController: NavController, private val contex
         navController.navigate(ROUTE_LOGIN)
     }
 
-//    fun isLoggedIn(): Boolean {
-//        return mAuth.currentUser != null
-//    }
 
     fun isloggedin(): Boolean {
         return mAuth.currentUser != null

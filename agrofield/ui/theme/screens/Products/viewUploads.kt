@@ -71,7 +71,6 @@ fun ViewUploadsScreen(navController:NavHostController) {
     }
 }
 
-
 @Composable
 fun UploadItem(name:String, quantity:String, price:String, imageUrl:String, id:String,
                navController:NavHostController, productRepository:ProductViewModel) {

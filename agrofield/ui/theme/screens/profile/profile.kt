@@ -58,7 +58,6 @@ fun ProfileInfo(userName: String, emailAddress: String) {
 @Composable
 fun LogoutButton(navController: NavHostController) {
     Button(onClick = {
-        // Implement logout logic
         navController.navigate("login")
     }) {
         Text("Logout")

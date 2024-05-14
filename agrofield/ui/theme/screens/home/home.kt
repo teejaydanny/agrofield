@@ -67,7 +67,7 @@ fun HomeScreen(navController: NavController) {
             Button(onClick = {
                 navController.navigate(ROUTE_ADD_PRODUCT)
             }) {
-                Text(text = "Add Product")
+                Text(text = "Add cashcrops")
             }
 
             Spacer(modifier = Modifier.height(16.dp))
@@ -75,7 +75,7 @@ fun HomeScreen(navController: NavController) {
             Button(onClick = {
                 navController.navigate(ROUTE_VIEW_PRODUCT)
             }) {
-                Text(text = "View Product")
+                Text(text = "View crop products")
             }
             Spacer(modifier = Modifier.height(16.dp))
         }

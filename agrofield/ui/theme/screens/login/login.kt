@@ -33,6 +33,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.agrofield.R
+import com.example.agrofield.data.AuthViewModel
 import com.example.agrofield.navigation.ROUTE_HOME
 import com.example.agrofield.navigation.ROUTE_LOGIN
 import com.example.agrofield.navigation.ROUTE_REGISTER
@@ -95,36 +96,25 @@ fun LoginScreen(navController: NavHostController) {
             )
             Spacer(modifier = Modifier.height(20.dp))
 
-//            Button(
-//                onClick = { navController.navigate(ROUTE_HOME) },
-//                modifier = Modifier.fillMaxWidth()
-//            ) {
-//                Text(text = "Log In")
-//            }
-//
-//
-//            Spacer(modifier = Modifier.height(20.dp))
-//
-//            Button(
-//                onClick = { navController.navigate(ROUTE_REGISTER) },
-//                modifier = Modifier.fillMaxWidth()
-//            ) {
-//                Text(text = "Don't have an account? Click to Register")
-//            }   Button(onClick = { navController.navigate(ROUTE_REGISTRATION) }) {
-//                Text(text = "Register")
-//            }
-//            Spacer(modifier = Modifier.height(16.dp))
-//            Button(onClick = { navController.navigate(ROUTE_LOGIN) }) {
-//                Text(text = "Login")
-//            }
-
-            Button(onClick = { navController.navigate(ROUTE_REGISTER) }) {
-                Text(text = "Don't have account? Click to Register")
+            Button(
+                onClick = {
+                    navController.navigate(ROUTE_HOME)
+                    val mylogin = AuthViewModel(navController,context)
+                    mylogin.login(email.text.trim(), pass.text.trim())      },
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(text = "Log In")
             }
-            Spacer(modifier = Modifier.height(16.dp))
-            Button(onClick = { navController.navigate(
-                ROUTE_HOME) }) {
-                Text(text = "Login")
+
+
+            Spacer(modifier = Modifier.height(20.dp))
+
+            Button(
+                onClick = { navController.navigate(ROUTE_REGISTER) },
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(text = "Don't have an account? Click to Register")
+
             }
         }
     }

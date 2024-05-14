@@ -2,6 +2,7 @@ package com.example.agrofield.navigation
 
 
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.compositionLocalOf
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -13,6 +14,7 @@ import com.example.agrofield.ui.theme.screens.splashscreen.SplashScreen
 import com.example.agrofield.ui.theme.screens.Products.AddProductsScreen
 import com.example.agrofield.ui.theme.screens.Products.UpdateProductsScreen
 import com.example.agrofield.ui.theme.screens.Products.ViewUploadsScreen
+import com.example.agrofield.ui.theme.screens.profile.ProfileScreen
 
 @Composable
 fun AppNavHost(navController: NavHostController) {
@@ -29,18 +31,25 @@ fun AppNavHost(navController: NavHostController) {
         composable(ROUTE_REGISTER) {
             RegisterScreen(navController = navController)
         }
-        composable(ROUTE_ADD_PRODUCT){
+        composable(ROUTE_ADD_PRODUCT) {
             AddProductsScreen(navController = navController)
         }
         composable(ROUTE_ABOUT) {
             AboutScreen(navController = navController)
         }
-        composable(ROUTE_VIEW_UPLOAD){
-            ViewUploadsScreen(navController)
+        composable(ROUTE_VIEW_UPLOAD) {
+            ViewUploadsScreen(navController = navController)
         }
-        composable(ROUTE_UPDATE_PRODUCT +"/{id}"){passedData->
-            UpdateProductsScreen(navController,passedData.arguments?.getString("id")!!)
+        composable(ROUTE_UPDATE_PRODUCT + "/{id}") { passedData ->
+            UpdateProductsScreen(navController, passedData.arguments?.getString("id")!!)
         }
-   
+        composable(ROUTE_PROFILE){
+            ProfileScreen(navController = navController)
+
+        }
+
     }
 }
+   
+
+

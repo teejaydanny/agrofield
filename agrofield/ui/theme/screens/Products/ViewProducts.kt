@@ -1,10 +1,5 @@
 package com.example.agrofield.ui.theme.screens.Products
 
-
-
-
-
-
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -32,9 +27,6 @@ import androidx.navigation.compose.rememberNavController
 import com.example.agrofield.data.ProductViewModel
 import com.example.agrofield.models.Product
 import com.example.agrofield.navigation.ROUTE_UPDATE_PRODUCT
-
-
-
 
 @Composable
 fun ViewProductsScreen(navController:NavHostController) {

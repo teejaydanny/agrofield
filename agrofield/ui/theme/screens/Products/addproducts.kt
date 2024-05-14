@@ -165,7 +165,6 @@ fun ImagePicker(modifier: Modifier = Modifier, context: Context, navController: 
                 Text(text = "Upload")
             }
             Button(onClick = {
-                //-----------WRITE THE UPLOAD LOGIC HERE---------------//
 
                 navController.navigate(ROUTE_VIEW_UPLOAD)
 
