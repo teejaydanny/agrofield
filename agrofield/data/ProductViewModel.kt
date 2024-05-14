@@ -34,9 +34,9 @@ class ProductViewModel(var navController: NavController, var context: Context) {
 
 
     fun saveProduct(productName: String, productQuantity: String, productPrice: String) {
-        var id = System.currentTimeMillis().toString()
-        var productData = Product(productName, productQuantity, productPrice, id)
-        var productRef = FirebaseDatabase.getInstance().getReference()
+        val id = System.currentTimeMillis().toString()
+        val productData = Product(productName, productQuantity, productPrice, id)
+        val productRef = FirebaseDatabase.getInstance().getReference()
             .child("Products/$id")
         progress.show()
         productRef.setValue(productData).addOnCompleteListener {
@@ -78,7 +78,7 @@ class ProductViewModel(var navController: NavController, var context: Context) {
 
 
     fun deleteProduct(id: String) {
-        var delRef = FirebaseDatabase.getInstance().getReference()
+        val delRef = FirebaseDatabase.getInstance().getReference()
             .child("Products/$id")
         progress.show()
         delRef.removeValue().addOnCompleteListener {
@@ -92,10 +92,10 @@ class ProductViewModel(var navController: NavController, var context: Context) {
     }
 
     fun updateProduct(name: String, quantity: String, price: String, id: String) {
-        var updateRef = FirebaseDatabase.getInstance().getReference()
+        val updateRef = FirebaseDatabase.getInstance().getReference()
             .child("Products/$id")
         progress.show()
-        var updateData = Product(name, quantity, price, id)
+        val updateData = Product(name, quantity, price, id)
         updateRef.setValue(updateData).addOnCompleteListener {
             progress.dismiss()
             if (it.isSuccessful) {
@@ -107,8 +107,8 @@ class ProductViewModel(var navController: NavController, var context: Context) {
     }
 
     fun saveProductWithImage(productName:String, productQuantity:String, productPrice:String, filePath: Uri){
-        var id = System.currentTimeMillis().toString()
-        var storageReference = FirebaseStorage.getInstance().getReference().child("Uploads/$id")
+        val id = System.currentTimeMillis().toString()
+        val storageReference = FirebaseStorage.getInstance().getReference().child("Uploads/$id")
         progress.show()
 
         storageReference.putFile(filePath).addOnCompleteListener{
@@ -116,10 +116,10 @@ class ProductViewModel(var navController: NavController, var context: Context) {
             if (it.isSuccessful){
                 // Proceed to store other data into the db
                 storageReference.downloadUrl.addOnSuccessListener {
-                    var imageUrl = it.toString()
-                    var houseData = Upload(productName,productQuantity,
+                    val imageUrl = it.toString()
+                    val houseData = Upload(productName,productQuantity,
                         productPrice,imageUrl,id)
-                    var dbRef = FirebaseDatabase.getInstance()
+                    val dbRef = FirebaseDatabase.getInstance()
                         .getReference().child("Uploads/$id")
                     dbRef.setValue(houseData)
                     Toast.makeText(context, "Upload successful", Toast.LENGTH_SHORT).show()
@@ -133,7 +133,7 @@ class ProductViewModel(var navController: NavController, var context: Context) {
 
 
     fun viewUploads(upload:MutableState<Upload>, uploads:SnapshotStateList<Upload>): SnapshotStateList<Upload> {
-        var ref = FirebaseDatabase.getInstance().getReference().child("Uploads")
+        val ref = FirebaseDatabase.getInstance().getReference().child("Uploads")
 
         progress.show()
         ref.addValueEventListener(object : ValueEventListener {

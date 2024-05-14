@@ -2,19 +2,18 @@ package com.example.agrofield.navigation
 
 
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.compositionLocalOf
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.agrofield.ui.theme.screens.login.LoginScreen
-import com.example.agrofield.ui.theme.screens.about.AboutScreen
-import com.example.agrofield.ui.theme.screens.home.HomeScreen
-import com.example.agrofield.ui.theme.screens.register.RegisterScreen
-import com.example.agrofield.ui.theme.screens.splashscreen.SplashScreen
 import com.example.agrofield.ui.theme.screens.Products.AddProductsScreen
 import com.example.agrofield.ui.theme.screens.Products.UpdateProductsScreen
 import com.example.agrofield.ui.theme.screens.Products.ViewUploadsScreen
+import com.example.agrofield.ui.theme.screens.about.AboutScreen
+import com.example.agrofield.ui.theme.screens.home.HomeScreen
+import com.example.agrofield.ui.theme.screens.login.LoginScreen
 import com.example.agrofield.ui.theme.screens.profile.ProfileScreen
+import com.example.agrofield.ui.theme.screens.register.RegisterScreen
+import com.example.agrofield.ui.theme.screens.splashscreen.SplashScreen
 
 @Composable
 fun AppNavHost(navController: NavHostController) {
