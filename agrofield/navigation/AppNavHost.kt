@@ -11,6 +11,7 @@ import com.example.agrofield.ui.theme.screens.home.HomeScreen
 import com.example.agrofield.ui.theme.screens.register.RegisterScreen
 import com.example.agrofield.ui.theme.screens.splashscreen.SplashScreen
 import com.example.agrofield.ui.theme.screens.Products.AddProductsScreen
+import com.example.agrofield.ui.theme.screens.Products.UpdateProductsScreen
 import com.example.agrofield.ui.theme.screens.Products.ViewUploadsScreen
 
 @Composable
@@ -36,6 +37,9 @@ fun AppNavHost(navController: NavHostController) {
         }
         composable(ROUTE_VIEW_UPLOAD){
             ViewUploadsScreen(navController)
+        }
+        composable(ROUTE_UPDATE_PRODUCT +"/{id}"){passedData->
+            UpdateProductsScreen(navController,passedData.arguments?.getString("id")!!)
         }
    
     }
