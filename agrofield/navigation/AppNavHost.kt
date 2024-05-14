@@ -11,6 +11,7 @@ import com.example.agrofield.ui.theme.screens.home.HomeScreen
 import com.example.agrofield.ui.theme.screens.register.RegisterScreen
 import com.example.agrofield.ui.theme.screens.splashscreen.SplashScreen
 import com.example.agrofield.ui.theme.screens.Products.AddProductsScreen
+import com.example.agrofield.ui.theme.screens.Products.ViewUploadsScreen
 
 @Composable
 fun AppNavHost(navController: NavHostController) {
@@ -32,6 +33,9 @@ fun AppNavHost(navController: NavHostController) {
         }
         composable(ROUTE_ABOUT) {
             AboutScreen(navController = navController)
+        }
+        composable(ROUTE_VIEW_UPLOAD){
+            ViewUploadsScreen(navController)
         }
    
     }
